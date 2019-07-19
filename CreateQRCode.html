@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    #span1 {
+        color : red;
+    }
+    </style>
+    <script type="text/javascript">
+        /**
+        * ボタンクリック処理
+        */
+        function clickBtn() {
+            //テキストエリアから値を取得
+            const textareavalue = document.getElementById('textarea').value;
+            //横幅を取得
+            const widthsizevalue = document.getElementById('widthsize').value;
+            //高さを取得
+            const heightsizevalue = document.getElementById('heightsize').value;
+
+            //テキストエリアに値がない場合
+            if (textareavalue === "") {
+                document.getElementById("span1").textContent = "テキストエリアが未入力です。";
+                return;
+            }
+            //横幅の値がない場合
+            if (widthsizevalue === "") {
+                document.getElementById("span1").textContent = "横幅の指定がありません。";
+                return;
+            }
+            //横幅の値がない場合
+            if (heightsizevalue === "") {
+                document.getElementById("span1").textContent = "高さの指定がありません。";
+                return;
+            }
+
+            var win = window.open("https://chart.googleapis.com/chart?cht=qr&chs=" + widthsizevalue + "x" + heightsizevalue + "&chl=" + textareavalue + "&choe=UTF-8", "QRCode");
+        }
+    </script>
+
+    <title>Convert to space from CSV tool</title>
+</head>
+
+<body>
+    <h1>Create QR code tool</h1>
+    <div id="span1"></div>
+    <table>
+        <tr>
+            <td>QRコードに埋め込む文字列を記載してください。</td>
+            <td><textarea id="textarea" cols="60" rows="5" placeholder="埋め込む文字列を入力入力してください。"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>QRコードのサイズを記載してください。</td>
+            <td><input type="text" id="widthsize" name="width" size="5" maxlength="3" placeholder="横サイズ">
+                x
+                <input type="text" id="heightsize" name="height" size="5" maxlength="3" placeholder="縦サイズ">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="ボタン" onclick="clickBtn()" /></td>
+        </tr>
+    </table>
+</body>
+
+</html>
