@@ -5,3 +5,6 @@ QRコードを生成する為にアプリをインストールしたくないと
 
 # GitHub Pages
 https://koji-yamamoto-github.github.io/Create-QR-Code/
+
+# 参考サイト
+https://developers.google.com/chart/infographics/docs/qr_codes?authuser=0
